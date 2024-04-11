@@ -1,4 +1,5 @@
 const connection = require("../app/database")
+const { v4: uuidv4 } = require("uuid")
 class OrderService {
   async getOrderListById(id, limit = 10, offset = 0, startTime, endTime) {
     let statement = `SELECT * FROM \`order\` WHERE user_id = ? ORDER BY fueling_date DESC LIMIT ? OFFSET ?;`
@@ -19,12 +20,13 @@ class OrderService {
     return result
   }
   async createOrder(userId, createInfo) {
-    const { car_id, fuel_volume, fuel_type, cost, fueling_station, position } =
-      createInfo
+    const { car_id, fuel_volume, fuel_type, cost, fueling_station, position } = createInfo
+    const number = uuidv4()
+
     const statement = `
       INSERT INTO \`order\` 
-      (user_id, car_id, fuel_volume, fuel_type, cost, fueling_station, position) 
-      VALUES (?, ?, ?, ?, ?, ?, ?);
+      (user_id, car_id, fuel_volume, fuel_type, cost, fueling_station, position, number) 
+      VALUES (?, ?, ?, ?, ?, ?, ?, ?);
     `
     const [result] = await connection.execute(statement, [
       userId,
@@ -34,6 +36,7 @@ class OrderService {
       cost,
       fueling_station,
       position,
+      number
     ])
     return result
   }
@@ -49,7 +52,7 @@ class OrderService {
       UPDATE \`order\` 
       SET user_id = COALESCE(?, user_id), car_id = COALESCE(?, car_id), fuel_volume = COALESCE(?, fuel_volume), 
       fuel_type = COALESCE(?, fuel_type), cost = COALESCE(?,cost), fueling_station = COALESCE(?, fueling_station), 
-      position = COALESCE(?, position) 
+      position = COALESCE(?, position)
       WHERE id = ?
     `
     const [result] = await connection.execute(statement, [

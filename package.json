@@ -20,8 +20,8 @@
     "jsonwebtoken": "^9.0.2",
     "koa": "^2.15.2",
     "koa-bodyparser": "^4.4.1",
-    "koa2-connect": "^1.0.2",
     "multer": "1.4.5-lts.1",
-    "mysql2": "^3.9.3"
+    "mysql2": "^3.9.3",
+    "uuid": "^9.0.1"
   }
 }

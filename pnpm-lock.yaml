@@ -32,15 +32,15 @@ dependencies:
   koa-bodyparser:
     specifier: ^4.4.1
     version: 4.4.1
-  koa2-connect:
-    specifier: ^1.0.2
-    version: 1.0.2
   multer:
     specifier: 1.4.5-lts.1
     version: 1.4.5-lts.1
   mysql2:
     specifier: ^3.9.3
     version: 3.9.3
+  uuid:
+    specifier: ^9.0.1
+    version: 9.0.1
 
 packages:
 
@@ -947,11 +947,6 @@ packages:
       koa-compose: 4.1.0
     dev: false
 
-  /koa2-connect@1.0.2:
-    resolution: {integrity: sha512-Subc/t9vJaMtorZ/Z/yqjRaZZ4RQ8ew+aacQhYXzL6oVuaYaUGqhh3UMRB5gcpu7t9hu1QBwbJezHohLNohr3g==}
-    engines: {node: '>=4'}
-    dev: false
-
   /koa@2.15.2:
     resolution: {integrity: sha512-MXTeZH3M6AJ8ukW2QZ8wqO3Dcdfh2WRRmjCBkEP+NhKNCiqlO5RDqHmSnsyNrbRJrdjyvIGSJho4vQiWgQJSVA==}
     engines: {node: ^4.8.4 || ^6.10.1 || ^7.10.1 || >= 8.1.4}
@@ -1349,6 +1344,11 @@ packages:
 
   /util-deprecate@1.0.2:
     resolution: {integrity: sha512-EPD5q1uXyFxJpCrLnCc1nHnq3gOa6DZBocAIiI2TaSCA7VCJ1UJDMagCzIkXNsUYfD1daK//LTEQ8xiIbrHtcw==}
+    dev: false
+
+  /uuid@9.0.1:
+    resolution: {integrity: sha512-b+1eJOlsR9K8HJpow9Ok3fiWOWSIcIzXodvv0rQjVoOVNpWMpxf1wZNpt4y9h10odCNrqnYp1OBzRktckBe3sA==}
+    hasBin: true
     dev: false
 
   /vary@1.1.2:
