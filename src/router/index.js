@@ -11,5 +11,12 @@ function registerRouter(app) {
     }
   })
 }
+// const loginRouter =require("../router/login.router")
+// app.use(loginRouter.routes())
+// app.use(loginRouter.allowedMethods())
+// const useRouter = require("../router/user.router")
+// app.use(useRouter.routes())
+// app.use(useRouter.allowedMethods())
+
 
 module.exports = registerRouter
